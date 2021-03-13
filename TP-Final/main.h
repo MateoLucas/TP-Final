@@ -19,6 +19,9 @@
 #define SHOT_SPEED 5
 #define ALIENS_N 55
 #define MURO_N 48
+#define MURO_S 8
+#define MURO_H 195 //hay que modificar este o el anterior a que sea una proporcion de SCREEN_HEIGHT
+#define SHIFT_SPEED 5
 
 #endif /* MAIN_ALLEGRO_H */
 /*

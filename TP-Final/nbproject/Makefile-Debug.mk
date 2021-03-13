@@ -38,9 +38,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/aliens.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/muros.o \
-	${OBJECTDIR}/muros.o \
 	${OBJECTDIR}/ship.o \
-	${OBJECTDIR}/shots.o
+	${OBJECTDIR}/shots.o \
+	${OBJECTDIR}/tools.o
 
 
 # C Compiler Flags
@@ -82,10 +82,10 @@ ${OBJECTDIR}/muros.o: muros.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/muros.o muros.c
 
-${OBJECTDIR}/muros.o: muros.h
+${OBJECTDIR}/muros.h.gch: muros.h
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/muros.o muros.h
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o "$@" muros.h
 
 ${OBJECTDIR}/ship.o: ship.c
 	${MKDIR} -p ${OBJECTDIR}
@@ -96,6 +96,11 @@ ${OBJECTDIR}/shots.o: shots.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/shots.o shots.c
+
+${OBJECTDIR}/tools.o: tools.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tools.o tools.c
 
 # Subprojects
 .build-subprojects:

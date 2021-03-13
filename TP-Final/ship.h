@@ -14,7 +14,7 @@
 #ifndef SHIP_H
 #define SHIP_H
 
-#define SHIFT_ALLEGRO_SPEED 5
+
 SHIP ship_init(SHIP ship);
 SHIP ship_update(SHIP ship ,int shift, bool shoot,bool die);
 

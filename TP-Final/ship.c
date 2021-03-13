@@ -29,12 +29,10 @@ SHIP ship_init(SHIP ship)
 
 
 /*shift puede ser positivo o negativo*/
-SHIP ship_update(SHIP ship ,int shift, bool shoot,bool die)
+SHIP ship_update(SHIP ship ,int shift, bool shoot)
 {
     if( !( ship.x + shift > SCREEN_WIDTH || ship.x + shift < 0 ) )
         ship.x += SHIFT_SPEED;
-    if(die)
-        ship.alive = 0;
     if(shoot && !ship.shot_active)
     {
         ship.shot_active;

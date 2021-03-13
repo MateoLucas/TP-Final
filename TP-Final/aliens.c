@@ -17,6 +17,8 @@ typedef struct {
     bool alive;
     bool shot;
     bool fires;
+    int shot_x;
+    int shot_y;
 
 }ALIEN;
 
