@@ -5,7 +5,7 @@
  */
 #include "aliens.h"
 #include <stdbool.h>
-#define ALIENS_N
+
 //la cantidad de aliens es siempre la misma, sin importar nivel
 typedef struct {
     int x;
@@ -16,7 +16,7 @@ typedef struct {
 
 }ALIEN;
 
-ALIEN alien[ALIENS_N];
+
 
 
 

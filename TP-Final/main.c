@@ -29,8 +29,11 @@ int main(int argc, char** argv) {
     SHIP ship;
     
     ship = SHIP ship_init(SHIP ship);
+    int i;
+    for(i=0;i<ALIENS_N;i++)
+    {
     
-    for()
+    }
     
     
     
