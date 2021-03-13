@@ -8,6 +8,7 @@
 #define ALIEN_POS_REFERENCE_X
 #define ALIEN_POS_REFERENCE_Y
 #define ALIEN_V 2
+#define ALIEN_YV 5
 //la cantidad de aliens es siempre la misma, sin importar nivel
 typedef struct {
     int x;
@@ -15,6 +16,7 @@ typedef struct {
     int lives;
     bool alive;
     bool shot;
+    bool fires;
 
 }ALIEN;
 
@@ -30,10 +32,10 @@ void aliens_init(ALIEN* aliens,int life)
         columnas++;
         aliens[t].alive = true;
         if (t > ALIENS_N-11) {
-            aliens[t].shot = true;
+            aliens[t].fires = true;
         }
         else {
-            aliens[t].shot = false;
+            aliens[t].fires = false;
         }
         aliens[t].lives = life;
         if(columnas >= N_COLS)
@@ -51,16 +53,17 @@ void aliens_update (ALIEN* aliens) {
     int direccion = 1;
     for (j=0;j<ALIENS_N;J++) {
         aliens.x += direccion*ALIEN_V;
-        if ((aliens[j].alive)&&((aliens[j].x >= BUFFER_W-ALIEN_W)||aliens[j].x<= 0)) {
-            if (direccion)
-                direccion=1;
-            else
-                direccion=-1;
+        if ((aliens[j].alive)&&((aliens[j].x >= SCREEN_W-ALIEN_W)||aliens[j].x<= 0)) {
+                direccion=-1*direccion;
             for (i=0;i<ALIENS_N;i++) {
                 aliens.x += direccion*ALIEN_V;
-                
+                aliens.y += ALIEN_YV
             }
         }
+        if (shot)
+            aliens.lives--;
+        if (!aliens.lives)
+            aliens.alive=false;
         
     }
 }
