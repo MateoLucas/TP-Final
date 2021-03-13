@@ -20,9 +20,17 @@
 #include <allegro5/allegro_acodec.h>
 #include <allegro5/allegro_image.h>
 
+#include "aliens.h"
+#include "ship.h"
+
 int main(int argc, char** argv) {
 
+    ALIEN alien[ALIENS_N];
+    SHIP ship;
     
+    ship = SHIP ship_init(SHIP ship);
+    
+    for()
     
     
     
