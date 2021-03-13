@@ -13,7 +13,6 @@
 
 #ifndef ALIENS_H
 #define ALIENS_H
-#define ALIENS_N 55
 
 #endif /* ALIENS_H */
 

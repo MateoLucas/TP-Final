@@ -37,7 +37,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/aliens.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/ship.o
+	${OBJECTDIR}/muros.o \
+	${OBJECTDIR}/muros.o \
+	${OBJECTDIR}/ship.o \
+	${OBJECTDIR}/shots.o
 
 
 # C Compiler Flags
@@ -74,10 +77,25 @@ ${OBJECTDIR}/main.o: main.c
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
+${OBJECTDIR}/muros.o: muros.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/muros.o muros.c
+
+${OBJECTDIR}/muros.o: muros.h
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/muros.o muros.h
+
 ${OBJECTDIR}/ship.o: ship.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ship.o ship.c
+
+${OBJECTDIR}/shots.o: shots.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/shots.o shots.c
 
 # Subprojects
 .build-subprojects:

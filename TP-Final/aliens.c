@@ -13,7 +13,7 @@ typedef struct {
     int y;
     int lives;
     bool alive;
-    bool shot;
+    bool shot;//shot is active
 
 }ALIEN;
 

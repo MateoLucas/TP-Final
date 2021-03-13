@@ -22,11 +22,14 @@
 
 #include "aliens.h"
 #include "ship.h"
+#include "main.h"
 
 int main(int argc, char** argv) {
 
     ALIEN alien[ALIENS_N];
     SHIP ship;
+    MURO muro_arr[MURO_N];
+
     
     ship = SHIP ship_init(SHIP ship);
     

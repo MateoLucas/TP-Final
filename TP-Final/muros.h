@@ -3,13 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-#include <stdbool.h>
-typedef struct MURO
-{
-    int x, y;
-    int life;
-} MURO;
+#ifndef MUROS_H
+#define MUROS_H
 
-
-
+#endif
 

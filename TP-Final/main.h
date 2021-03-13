@@ -10,12 +10,25 @@
  *
 
  */
-
 #ifndef MAIN_H
 #define MAIN_H
 
+#ifdef MAIN_ALLEGRO_H
 #define SCREEN_WIDTH 200
 #define SCREEN_HEIGHT 200
+#define SHOT_SPEED 5
+#define ALIENS_N 55
 
-#endif /* MAIN_H */
+#endif /* MAIN_ALLEGRO_H */
 
+#ifdef MAIN_RASP_H
+
+#define SCREEN_WIDTH 16
+#define SCREEN_HEIGHT 16
+#define SHOT_SPEED 1
+#define ALIENS_N 10
+
+
+#endif
+        
+#endif
