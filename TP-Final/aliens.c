@@ -5,7 +5,8 @@
  */
 #include "aliens.h"
 #include <stdbool.h>
-
+#define ALIEN_POS_REFERENCE_X
+#define ALIEN_POS_REFERENCE_Y
 //la cantidad de aliens es siempre la misma, sin importar nivel
 typedef struct {
     int x;
@@ -17,6 +18,10 @@ typedef struct {
 }ALIEN;
 
 
-
+ALIEN alien_init(ALIEN alien, int i)
+{
+    alien.x = ALIEN_POS_REFERENCE_X + i;
+    alien.y = ALIEN_POS_REFERENCE_Y
+}
 
 
