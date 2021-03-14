@@ -8,21 +8,13 @@
 #include "main.h"
 #include <stdlib.h>
 #include <time.h>
+#include "ship.h"
+#include "shots.h"
 
 //la cantidad de aliens es siempre la misma, sin importar nivel
-typedef struct {
-    int x;
-    int y;
-    int lives;
-    bool alive;
-    bool shot;
-    bool fires;
-}ALIEN;
 
-typedef struct {
-    int x;
-    int y;
-}SHOT;
+
+
 
 
 void aliens_init(ALIEN* aliens,int life)
@@ -42,16 +34,17 @@ void aliens_init(ALIEN* aliens,int life)
             aliens[t].fires = false;
         }
         aliens[t].lives = life;
-        if(columnas >= N_COLS)
+        if(columnas >= COLS_N)
         {
             columnas=0;
         }
-        aliens[t].x = REFERENCE_X + columnas*ALIEN_SPACE_BUFFER;
-        aliens[t].y = REFERENCE_Y+ s* ALIEN_SPACE_BUFFER;
+        aliens[t].x = REFERENCE_X + columnas;
+        aliens[t].y = REFERENCE_Y+ s;
     }
 }
 
-void aliens_update (ALIEN aliens [], SHOT tiro) {
+void aliens_update (ALIEN aliens [], SHOT tiro) 
+{
     int j;
     int i;
     int k=0;
@@ -60,9 +53,9 @@ void aliens_update (ALIEN aliens [], SHOT tiro) {
     srand (time (NULL));
     int direccion = 1;
     ALIEN p_disp [COLS_N];
-    for (j=0;j<ALIENS_N;J++) {
+    for (j=0;j<ALIENS_N;j++) {
         aliens[j].x += direccion*ALIEN_V;
-        if ((aliens[j].alive)&&((aliens[j].x >= SCREEN_W-ALIEN_W)||aliens[j].x<= 0)) {
+        if ((aliens[j].alive)&&((aliens[j].x >= SCREEN_WIDTH)||aliens[j].x<= 0)) {
                 direccion=-1*direccion;
             for (i=0;i<ALIENS_N;i++) {
                 aliens[j].x += direccion*ALIEN_V;
@@ -71,10 +64,12 @@ void aliens_update (ALIEN aliens [], SHOT tiro) {
         }
         if (aliens[j].shot)
             aliens[j].lives--;
-        if (!aliens[j].lives) {
+        if (!aliens[j].lives) 
+        {
             aliens[j].alive=false;
             aliens[j].fires=false;
             aliens[j-COLS_N].fires=true;
+        }
         {
         if (aliens[j].fires) {
             p_disp [k]=aliens[j];
@@ -87,9 +82,10 @@ void aliens_update (ALIEN aliens [], SHOT tiro) {
         tiro.y = p_disp[random].y;
         fired=true;
     }
-    tiro.y += TIR0_V;
-    if (shots_collide()) {
-        fired=false;
-    }
-    return; 
+    tiro.y += TIRO_V;
+    //if (shots_collide()) {
+        //fired=false;
+    //}
+        
+    return;
 }

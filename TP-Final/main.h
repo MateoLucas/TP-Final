@@ -23,6 +23,7 @@
 #define MURO_H 195 //hay que modificar este o el anterior a que sea una proporcion de SCREEN_HEIGHT
 #define SHIFT_SPEED 5
 #define TIRO_V 5
+#define COLS_N 11
 
 #endif /* MAIN_ALLEGRO_H */
 /*

@@ -70,7 +70,7 @@ int main(int argc, char** argv)
                 {                          
                     ship_update(ship ,0, false,false);
                     //aliens_update();
-                    muro_update();
+                    //muro_update();
                 }
 
                 if(key[ALLEGRO_KEY_P])//corregir

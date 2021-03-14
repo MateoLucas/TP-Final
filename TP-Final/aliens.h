@@ -18,6 +18,8 @@
 #define ALIEN_POS_REFERENCE_Y
 #define ALIEN_V 2
 #define ALIEN_YV 5
+#define REFERENCE_X 10
+#define REFERENCE_Y 10
 #include <stdbool.h>
 
 typedef struct {
@@ -27,10 +29,6 @@ typedef struct {
     bool alive;
     bool shot;
     bool fires;
-    int shot_x;
-    int shot_y;
-
 }ALIEN;
-
 #endif /* ALIENS_H */
 
