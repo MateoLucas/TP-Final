@@ -25,7 +25,7 @@ typedef struct{
 }SHIP;
 
 SHIP ship_init(SHIP ship);
-SHIP ship_update(SHIP ship ,int shift, bool shoot,bool die);
+SHIP ship_update(SHIP ship ,int shift, bool shoot);
 
 #endif /* SHIP_H */
 

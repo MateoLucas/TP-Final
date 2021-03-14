@@ -48,7 +48,7 @@ unsigned char keyboard_update(ALLEGRO_EVENT* event, unsigned char* key)
     }
 }
 
-ship_draw(SHIP ship,ALLEGRO_BITMAP* ship_image)
+void ship_draw(SHIP ship,ALLEGRO_BITMAP* ship_image)
 {
     if(ship.alive == false)
         return;

@@ -26,7 +26,7 @@
 #include "main.h"
 #include "aliens.h"
 #include "muros.h"
-
+#include "allegro.h"
 #define COLS_N 11
 
 int main(int argc, char** argv) 
@@ -68,7 +68,7 @@ int main(int argc, char** argv)
             case ALLEGRO_EVENT_TIMER:
                 if(!pause)
                 {                          
-                    ship_update(ship ,0, false,false);
+                    ship_update(ship ,0, false);
                     //aliens_update();
                     //muro_update();
                 }
@@ -78,6 +78,7 @@ int main(int argc, char** argv)
                     pause = pause ? false : true;
                     al_rest(1);
                 }
+                /*
                 if(key[ALLEGRO_KEY_S])
                 {
                     int save;
@@ -92,6 +93,7 @@ int main(int argc, char** argv)
                     if(load == NULL)
                         printf("load error!");
                 }
+                 * */
                 if(key[ALLEGRO_KEY_ESCAPE])
                     done = true;
 
@@ -105,16 +107,15 @@ int main(int argc, char** argv)
         if(done)
             break;
 
-        keyboard_update(&event);
+        keyboard_update(&event,0);
 
         if(al_is_event_queue_empty(queue))
         {
-            al_set_target_bitmap(disp);
             al_clear_to_color(al_map_rgb(0,0,0));
 
             //aliens_draw();
 
-            ship_draw();
+            ship_draw(ship, ship_image);
             //muro_draw();
 
 
