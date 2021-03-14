@@ -6,11 +6,7 @@
 #include <stdbool.h>
 #include "muros.h"
 #include "main.h"
-typedef struct MURO
-{
-    int x, y;
-    int life;
-} MURO;
+
 
 void muro_init (MURO* muro_arr)
 {
@@ -38,7 +34,7 @@ void muro_init (MURO* muro_arr)
             muro_arr[j].y=muro_arr[j-1].y-+MURO_S;      
     }
 }
-
+/*
 void muro_update (MURO* muro_arr)
 {
     for(int i=0;i<MURO_N;i++)
@@ -51,3 +47,4 @@ void muro_update (MURO* muro_arr)
     }        
 }
 
+*/

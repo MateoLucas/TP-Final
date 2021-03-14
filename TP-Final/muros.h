@@ -5,6 +5,10 @@
  */
 #ifndef MUROS_H
 #define MUROS_H
-
+typedef struct MURO
+{
+    int x, y;
+    int life;
+} MURO;
 #endif
 

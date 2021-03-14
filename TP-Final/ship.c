@@ -7,14 +7,7 @@
 #include "main.h"
 #include <stdbool.h>
 
-typedef struct{
-    int x;
-    int y;
-    bool alive;//1 esta vivo, 0 muerto
-    int shot_x;//posicion del tiro en x
-    int shot_y;//posicion del tiro en y
-    bool shot_active;//1 es que su disparo esta en el aire
-}SHIP;
+
 
 
 
@@ -24,7 +17,7 @@ SHIP ship_init(SHIP ship)
     ship.y = 10*SCREEN_HEIGHT/100;
     ship.alive = 1;
     ship.shot_active = 0;
-    return SHIP;
+    return ship;
 }
 
 
@@ -43,7 +36,7 @@ SHIP ship_update(SHIP ship ,int shift, bool shoot)
     {
         ship.shot_x += SHOT_SPEED;
     }
-    return SHIP;
+    return ship;
 }
 
 

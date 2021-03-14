@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/aliens.o \
+	${OBJECTDIR}/allegro.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/muros.o \
 	${OBJECTDIR}/ship.o \
@@ -71,6 +72,11 @@ ${OBJECTDIR}/aliens.o: aliens.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/aliens.o aliens.c
+
+${OBJECTDIR}/allegro.o: allegro.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/allegro.o allegro.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}

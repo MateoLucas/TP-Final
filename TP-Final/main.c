@@ -19,33 +19,116 @@
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
 #include <allegro5/allegro_image.h>
+#include <stdbool.h>
 
 #include "aliens.h"
 #include "ship.h"
 #include "main.h"
+#include "aliens.h"
+#include "muros.h"
 
-int main(int argc, char** argv) {
+#define COLS_N 11
+
+int main(int argc, char** argv) 
+{
 
     ALIEN alien[ALIENS_N];
     SHIP ship;
     MURO muro_arr[MURO_N];
 
     
-    ship = SHIP ship_init(SHIP ship);
+    ship = ship_init(ship);
     
     
-    int i;
-    for(i=0;i<ALIENS_N;i++)
+    
+    ALLEGRO_DISPLAY* disp;//display
+    disp = al_create_display(SCREEN_WIDTH, SCREEN_HEIGHT);
+    unsigned char key[ALLEGRO_KEY_MAX];
+    memset(key, 0, sizeof(key));
+    must_init(al_init(), "allegro");    
+    must_init(al_install_keyboard(), "keyboard");
+    
+    ALLEGRO_BITMAP* ship_image = al_load_bitmap("x-wing.png");
+
+    ALLEGRO_EVENT_QUEUE* queue = al_create_event_queue();
+    must_init(queue, "queue");
+    al_register_event_source(queue, al_get_keyboard_event_source());
+    al_register_event_source(queue, al_get_display_event_source(disp));
+    ALLEGRO_EVENT event;
+    bool done = false;
+    bool pause = false;
+    while(1)//juego
     {
-        alien[i] = alien_init();
+        al_wait_for_event(queue, &event);
+
+        switch(event.type)
+        {
+
+
+            case ALLEGRO_EVENT_TIMER:
+                if(!pause)
+                {                          
+                    ship_update(ship ,0, false,false);
+                    //aliens_update();
+                    muro_update();
+                }
+
+                if(key[ALLEGRO_KEY_P])//corregir
+                {
+                    pause = pause ? false : true;
+                    al_rest(1);
+                }
+                if(key[ALLEGRO_KEY_S])
+                {
+                    int save;
+                    //save = save_game();
+                    if(!save==NULL)
+                        printf("save error!");
+                }
+                if(key[ALLEGRO_KEY_L])//corregir
+                {
+                    int load;
+                    //load = load_game();
+                    if(load == NULL)
+                        printf("load error!");
+                }
+                if(key[ALLEGRO_KEY_ESCAPE])
+                    done = true;
+
+                break;
+
+            case ALLEGRO_EVENT_DISPLAY_CLOSE:
+                done = true;
+                break;
+        }
+
+        if(done)
+            break;
+
+        keyboard_update(&event);
+
+        if(al_is_event_queue_empty(queue))
+        {
+            al_set_target_bitmap(disp);
+            al_clear_to_color(al_map_rgb(0,0,0));
+
+            //aliens_draw();
+
+            ship_draw();
+            //muro_draw();
+
+
+            al_flip_display();
+        }
+
     }
+        
     
     
     
-    
-    
-    
-    
-    return (EXIT_SUCCESS);
+    al_destroy_display(disp);
+
+    al_destroy_event_queue(queue);
+    return 0;
 }
 
