@@ -6,6 +6,8 @@
 #include "aliens.h"
 #include <stdbool.h>
 #include "main.h"
+#include <stdlib.h>
+#include <time.h>
 
 //la cantidad de aliens es siempre la misma, sin importar nivel
 typedef struct {
@@ -15,10 +17,12 @@ typedef struct {
     bool alive;
     bool shot;
     bool fires;
-    int shot_x;
-    int shot_y;
-
 }ALIEN;
+
+typedef struct {
+    int x;
+    int y;
+}SHOT;
 
 
 void aliens_init(ALIEN* aliens,int life)
@@ -47,23 +51,45 @@ void aliens_init(ALIEN* aliens,int life)
     }
 }
 
-void aliens_update (ALIEN* aliens) {
+void aliens_update (ALIEN aliens [], SHOT tiro) {
     int j;
     int i;
+    int k=0;
+    bool fired = false;
+    int columnas = COLS_N;
+    srand (time (NULL));
     int direccion = 1;
+    ALIEN p_disp [COLS_N];
     for (j=0;j<ALIENS_N;J++) {
-        aliens.x += direccion*ALIEN_V;
+        aliens[j].x += direccion*ALIEN_V;
         if ((aliens[j].alive)&&((aliens[j].x >= SCREEN_W-ALIEN_W)||aliens[j].x<= 0)) {
                 direccion=-1*direccion;
             for (i=0;i<ALIENS_N;i++) {
-                aliens.x += direccion*ALIEN_V;
-                aliens.y += ALIEN_YV
+                aliens[j].x += direccion*ALIEN_V;
+                aliens[j].y += ALIEN_YV;
             }
         }
-        if (shot)
-            aliens.lives--;
-        if (!aliens.lives)
-            aliens.alive=false;
-        
+        if (aliens[j].shot)
+            aliens[j].lives--;
+        if (!aliens[j].lives) {
+            aliens[j].alive=false;
+            aliens[j].fires=false;
+            aliens[j-COLS_N].fires=true;
+        {
+        if (aliens[j].fires) {
+            p_disp [k]=aliens[j];
+            k++;                 
+        }
     }
+    if (!fired) {
+        int random = rand() % COLS_N;
+        tiro.x = p_disp[random].x;
+        tiro.y = p_disp[random].y;
+        fired=true;
+    }
+    tiro.y += TIR0_V;
+    if (shots_collide()) {
+        fired=false;
+    }
+    return; 
 }
