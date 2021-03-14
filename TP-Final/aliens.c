@@ -43,8 +43,7 @@ void aliens_init(ALIEN* aliens,int life)
     }
 }
 
-void aliens_update (ALIEN aliens [], SHOT tiro) 
-{
+void aliens_update (ALIEN aliens [], SHOT tiro) {
     int j;
     int i;
     int k=0;
@@ -64,13 +63,11 @@ void aliens_update (ALIEN aliens [], SHOT tiro)
         }
         if (aliens[j].shot)
             aliens[j].lives--;
-        if (!aliens[j].lives) 
-        {
+        if (!aliens[j].lives) {
             aliens[j].alive=false;
             aliens[j].fires=false;
             aliens[j-COLS_N].fires=true;
         }
-        {
         if (aliens[j].fires) {
             p_disp [k]=aliens[j];
             k++;                 
