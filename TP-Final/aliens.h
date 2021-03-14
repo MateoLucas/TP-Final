@@ -14,5 +14,10 @@
 #ifndef ALIENS_H
 #define ALIENS_H
 
+#define ALIEN_POS_REFERENCE_X
+#define ALIEN_POS_REFERENCE_Y
+#define ALIEN_V 2
+#define ALIEN_YV 5
+
 #endif /* ALIENS_H */
 

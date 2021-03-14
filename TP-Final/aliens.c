@@ -5,10 +5,8 @@
  */
 #include "aliens.h"
 #include <stdbool.h>
-#define ALIEN_POS_REFERENCE_X
-#define ALIEN_POS_REFERENCE_Y
-#define ALIEN_V 2
-#define ALIEN_YV 5
+#include "main.h"
+
 //la cantidad de aliens es siempre la misma, sin importar nivel
 typedef struct {
     int x;
