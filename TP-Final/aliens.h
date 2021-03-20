@@ -11,6 +11,8 @@
  * Created on March 13, 2021, 11:38 AM
  */
 
+#include "position.h"
+
 #ifndef ALIENS_H
 #define ALIENS_H
 
@@ -23,12 +25,15 @@
 #include <stdbool.h>
 
 typedef struct {
-    int x;
-    int y;
+    POSITION posit; 
     int lives;
     bool alive;
     bool shot;
     bool fires;
 }ALIEN;
+
+typedef struct {
+    
+};
 #endif /* ALIENS_H */
 
