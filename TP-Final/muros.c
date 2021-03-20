@@ -14,7 +14,7 @@ void muro_init (MURO* muro_arr)
     muro_arr[0].life=2;
 
     muro_arr[0].x=SCREEN_WIDTH/9;
-    muro_arr[0].y=MURO_H;// numeri magico?
+    muro_arr[0].y=MURO_H;
     int j;
     for(j=1;j<MURO_N;j++)
     {   

@@ -34,7 +34,9 @@ typedef struct {
 
 typedef struct {
     POSITION pos;
-    bool alive
+    bool alive;
+    short direccion;
+    int timer;
 }MOTHERSHIP;
 #endif /* ALIENS_H */
 

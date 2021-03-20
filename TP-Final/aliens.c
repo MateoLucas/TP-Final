@@ -78,3 +78,20 @@ void aliens_update(ALIEN aliens [], SHOT tiro) {
 
     return;
 }
+
+void mothership_init (MOTHERSHIP m) {
+    m.alive=true;
+    m.pos.y=SCREEN_HEIGHT/9;
+    m.direccion=rand(time(NULL))/2;
+    if (m.direccion) {
+        m.pos.x=SCREEN_WIDTH-MOTHERSHIP_W;
+    }
+    else {
+        m.pos.x=0;
+    }
+    m.timer=MOTHERSHIP_TIMER;
+}
+
+void mothership_update (MOTHERSHIP m) {
+    
+}

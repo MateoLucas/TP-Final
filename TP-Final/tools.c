@@ -9,7 +9,7 @@
 #include "muros.h"
 #include <stdbool.h>
 
-bool shots_collide(SHOT shot, position pos, int mode) {
+bool shots_collide(SHOT shot, POSITION pos, int mode) {
     bool ret = false;
     switch mode {
         case ALIEN_S:

@@ -50,6 +50,7 @@ int main(int argc, char** argv)
     memset(key, 0, sizeof(key));
    
     
+
     ALLEGRO_BITMAP* ship_image = al_load_bitmap("x-wing.png");
 
     ALLEGRO_EVENT_QUEUE* queue = al_create_event_queue();
