@@ -25,7 +25,7 @@
 #include <stdbool.h>
 
 typedef struct {
-    POSITION posit; 
+    POSITION pos; 
     int lives;
     bool alive;
     bool shot;
@@ -33,7 +33,8 @@ typedef struct {
 }ALIEN;
 
 typedef struct {
-    
-};
+    POSITION pos;
+    bool alive
+}MOTHERSHIP;
 #endif /* ALIENS_H */
 
