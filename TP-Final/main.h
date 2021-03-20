@@ -14,8 +14,8 @@
 #define MAIN_H
 
 //#ifdef MAIN_ALLEGRO_H
-#define SCREEN_WIDTH 200
-#define SCREEN_HEIGHT 200
+#define SCREEN_WIDTH 2000
+#define SCREEN_HEIGHT 2000
 #define SHOT_SPEED 5
 #define ALIENS_N 55
 #define MURO_N 48

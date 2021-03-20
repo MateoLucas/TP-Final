@@ -31,6 +31,9 @@
 
 int main(int argc, char** argv) 
 {
+    
+    must_init(al_init(), "allegro");    
+    must_init(al_install_keyboard(), "keyboard");
 
     ALIEN alien[ALIENS_N];
     SHIP ship;
@@ -45,8 +48,7 @@ int main(int argc, char** argv)
     disp = al_create_display(SCREEN_WIDTH, SCREEN_HEIGHT);
     unsigned char key[ALLEGRO_KEY_MAX];
     memset(key, 0, sizeof(key));
-    must_init(al_init(), "allegro");    
-    must_init(al_install_keyboard(), "keyboard");
+   
     
     ALLEGRO_BITMAP* ship_image = al_load_bitmap("x-wing.png");
 
@@ -128,7 +130,7 @@ int main(int argc, char** argv)
     
     
     al_destroy_display(disp);
-
+    al_destroy_bitmap(ship_image);
     al_destroy_event_queue(queue);
     return 0;
 }
