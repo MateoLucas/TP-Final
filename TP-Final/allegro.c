@@ -56,3 +56,4 @@ void ship_draw(SHIP ship,ALLEGRO_BITMAP* ship_image)
 }
 
 
+

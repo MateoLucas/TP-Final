@@ -24,7 +24,7 @@ typedef struct{
     bool shot_active;//1 es que su disparo esta en el aire
 }SHIP;
 
-SHIP ship_init(SHIP ship);
+SHIP ship_init();
 SHIP ship_update(SHIP ship ,int shift, bool shoot);
 
 #endif /* SHIP_H */

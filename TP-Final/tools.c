@@ -8,7 +8,13 @@
 #include "ship.h"
 #include "muros.h"
 #include <stdbool.h>
-
+typedef struct {
+    int active;
+    int x;
+    int y;
+    
+}SHOT;
+/*
 bool shots_collide(SHOT shot, POSITION pos, int mode) {
     bool ret = false;
     switch mode {
@@ -30,5 +36,5 @@ bool shots_collide(SHOT shot, POSITION pos, int mode) {
             break;
     } 
     return ret;
-}
+}*/
 

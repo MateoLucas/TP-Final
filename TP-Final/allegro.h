@@ -17,6 +17,7 @@
 void must_init(bool test, const char *description);
 unsigned char keyboard_update(ALLEGRO_EVENT* event, unsigned char* key);
 void ship_draw(SHIP ship,ALLEGRO_BITMAP* ship_image);
+void keyboard_init();
 
 #endif /* ALLEGRO_H */
 

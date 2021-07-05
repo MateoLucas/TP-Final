@@ -11,10 +11,11 @@
 
 
 
-SHIP ship_init(SHIP ship)
+SHIP ship_init()
 {
+    SHIP ship;
     ship.x = SCREEN_WIDTH /2 ;
-    ship.y = 10*SCREEN_HEIGHT/100;
+    ship.y = SCREEN_HEIGHT/2;
     ship.alive = 1;
     ship.shot_active = 0;
     return ship;

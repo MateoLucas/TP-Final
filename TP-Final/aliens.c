@@ -30,8 +30,8 @@ void aliens_init(ALIEN* aliens, int life) {
         if (columnas >= COLS_N) {
             columnas = 0;
         }
-        aliens[t].x = REFERENCE_X + columnas;
-        aliens[t].y = REFERENCE_Y + s;
+        aliens[t].pos.x = REFERENCE_X + columnas;
+        aliens[t].pos.y = REFERENCE_Y + s;
     }
 }
 
@@ -45,12 +45,12 @@ void aliens_update(ALIEN aliens [], SHOT tiro) {
     int direccion = 1;
     ALIEN p_disp [COLS_N];
     for (j = 0; j < ALIENS_N; j++) {
-        aliens[j].x += direccion*ALIEN_V;
-        if ((aliens[j].alive)&&((aliens[j].x >= SCREEN_WIDTH) || aliens[j].x <= 0)) {
+        aliens[j].pos.x += direccion*ALIEN_V;
+        if ((aliens[j].alive)&&((aliens[j].pos.x >= SCREEN_WIDTH) || aliens[j].pos.x <= 0)) {
             direccion = -1 * direccion;
             for (i = 0; i < ALIENS_N; i++) {
-                aliens[j].x += direccion*ALIEN_V;
-                aliens[j].y += ALIEN_YV;
+                aliens[j].pos.x += direccion*ALIEN_V;
+                aliens[j].pos.y += ALIEN_YV;
             }
         }
         if (aliens[j].shot)
@@ -67,8 +67,8 @@ void aliens_update(ALIEN aliens [], SHOT tiro) {
     }
     if (!fired) {
         int random = rand() % COLS_N;
-        tiro.x = p_disp[random].x;
-        tiro.y = p_disp[random].y;
+        tiro.x = p_disp[random].pos.x;
+        tiro.y = p_disp[random].pos.y;
         fired = true;
     }
     tiro.y += TIRO_V;
@@ -78,7 +78,7 @@ void aliens_update(ALIEN aliens [], SHOT tiro) {
 
     return;
 }
-
+/*
 void mothership_init (MOTHERSHIP m) {
     m.alive=true;
     m.pos.y=SCREEN_HEIGHT/9;
@@ -94,4 +94,4 @@ void mothership_init (MOTHERSHIP m) {
 
 void mothership_update (MOTHERSHIP m) {
     
-}
+}*/
