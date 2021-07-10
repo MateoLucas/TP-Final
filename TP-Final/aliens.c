@@ -46,7 +46,7 @@ void aliens_update(ALIEN aliens [], SHOT tiro) {
     ALIEN p_disp [COLS_N];
     for (j = 0; j < ALIENS_N; j++) {
         aliens[j].pos.x += direccion*ALIEN_V;
-        if ((aliens[j].alive)&&((aliens[j].pos.x >= SCREEN_WIDTH) || aliens[j].pos.x <= 0)) {
+        if ((aliens[j].alive)&&((aliens[j].pos.x >= DISP_W) || aliens[j].pos.x <= 0)) {
             direccion = -1 * direccion;
             for (i = 0; i < ALIENS_N; i++) {
                 aliens[j].pos.x += direccion*ALIEN_V;

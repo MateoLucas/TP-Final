@@ -14,10 +14,12 @@
 #ifndef SHIP_H
 #define SHIP_H
 #include <stdbool.h>
+#include "allegro.h"
 
 typedef struct{
     int x;
     int y;
+    int lives;
     bool alive;//1 esta vivo, 0 muerto
     int shot_x;//posicion del tiro en x
     int shot_y;//posicion del tiro en y
@@ -26,6 +28,7 @@ typedef struct{
 
 SHIP ship_init();
 SHIP ship_update(SHIP ship ,int shift, bool shoot);
+//void ship_draw(SHIP* ship);
 
 #endif /* SHIP_H */
 

@@ -13,7 +13,7 @@ void muro_init (MURO* muro_arr)
 
     muro_arr[0].life=2;
 
-    muro_arr[0].x=SCREEN_WIDTH/9;
+    muro_arr[0].x=DISP_W/9;
     muro_arr[0].y=MURO_H;
     int j;
     for(j=1;j<MURO_N;j++)
@@ -27,7 +27,7 @@ void muro_init (MURO* muro_arr)
         }
         else if (j%12==0)
         {
-            muro_arr[j].x+=SCREEN_HEIGHT/6;   
+            muro_arr[j].x+=DISP_W/6;   
             muro_arr[j].y=muro_arr[j-3].y;
         }
         else

@@ -6,26 +6,25 @@
 #include "ship.h"
 #include "main.h"
 #include <stdbool.h>
-
+//#define DEBUG
 
 
 
 
 SHIP ship_init()
 {
-    SHIP ship;
-    ship.x = SCREEN_WIDTH /2 ;
-    ship.y = SCREEN_HEIGHT/2;
-    ship.alive = 1;
-    ship.shot_active = 0;
-    return ship;
+    SHIP new_ship;
+    new_ship.x = BUFFER_W/2 ;
+    new_ship.y = (70*BUFFER_H)/100;//10%
+    new_ship.alive = true;
+    return new_ship;
 }
 
 
 /*shift puede ser positivo o negativo*/
 SHIP ship_update(SHIP ship ,int shift, bool shoot)
 {
-    if( !( ship.x + shift > SCREEN_WIDTH || ship.x + shift < 0 ) )
+    if( !( ship.x + shift > DISP_W|| ship.x + shift < 0 ) )
         ship.x += SHIFT_SPEED;
     if(shoot && !ship.shot_active)
     {
@@ -35,10 +34,14 @@ SHIP ship_update(SHIP ship ,int shift, bool shoot)
     }
     if(ship.shot_active)
     {
-        ship.shot_x += SHOT_SPEED;
+        ship.shot_y += SHOT_SPEED;
     }
     return ship;
 }
+
+
+
+
 
 
 

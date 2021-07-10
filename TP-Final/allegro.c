@@ -47,13 +47,15 @@ unsigned char keyboard_update(ALLEGRO_EVENT* event, unsigned char* key)
             break;
     }
 }
-
+/*
 void ship_draw(SHIP ship,ALLEGRO_BITMAP* ship_image)
 {
     if(ship.alive == false)
         return;
+    printf("entra a ship draw y ve que esta vivo el ship\n");
     al_draw_bitmap(ship_image, ship.x, ship.y, 0);
-}
+    printf("le sale dibujar el ship\n");
+}*/
 
 
 
